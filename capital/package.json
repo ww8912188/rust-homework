@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@koa/cors": "^3.1.0",
     "@polkadot/api": "^1.32.1",
     "@polkadot/util-crypto": "^3.4.1",
     "agenda": "^1.0.1",

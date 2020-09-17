@@ -39,7 +39,7 @@ const getAddress = async ctx => {
 }
 
 const doTransfer = async (from, to, value, uid) => {
-  let db = await AddressService.findOne({ account: from })
+  let db = await AddressService.findOne({ address: from })
   const keyring = new Keyring({ type: 'sr25519' });
   let alice
   if (!from || !db) {

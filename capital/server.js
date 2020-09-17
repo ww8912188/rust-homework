@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const Constant = require('./common/Constant');
 const mongoose = require('mongoose');
+const cors = require('@koa/cors');
 
 mongoose.connect(Constant.DB_URL, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true });
 mongoose.connection.on('error', err => console.log(err));
@@ -8,7 +9,7 @@ mongoose.connection.on('connected', async () => {
   const Koa = require('koa');
   const app = new Koa();
   app.use(require('koa-bodyparser')());
-
+  app.use(cors());
   //Error Handling
   app.use(async (ctx, next) => {
     await next().catch(err => {
